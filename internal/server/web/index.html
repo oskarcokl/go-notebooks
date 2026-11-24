@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>go-notebooks</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="icon.svg">
+</head>
+<body>
+<header class="bar">
+  <div class="file"><strong id="file">…</strong><span id="path"></span></div>
+  <button id="kernel" class="pill" title="Kernel status">starting</button>
+  <nav>
+    <button id="run-all" title="Run every code cell in order">Run all</button>
+    <button id="restart" title="Start a fresh kernel; stops a running cell">Restart</button>
+    <button id="sync" title="Add missing imports to go.mod, rebuild the kernel, and re-run what had run">Sync deps</button>
+    <button id="build" class="primary">Verify <code>go build</code></button>
+    <button id="toggle" title="Show or hide the variables panel" aria-expanded="true">Variables</button>
+    <button id="theme" title="Switch between light and dark">◐</button>
+  </nav>
+</header>
+<div class="layout">
+  <main>
+    <div id="notice" role="status" hidden></div>
+    <div id="cells"></div>
+    <div class="adder end"><button data-add="code">+ Code</button><button data-add="markdown">+ Markdown</button></div>
+  </main>
+  <aside id="side" aria-label="Variables">
+    <div id="stale" hidden><span></span><button id="run-stale">Re-run stale cells</button></div>
+    <h2>Variables <small id="nvars"></small></h2>
+    <div id="vars"></div>
+    <h2>Types <small id="ntypes"></small></h2>
+    <div id="types"></div>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
